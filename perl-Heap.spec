@@ -1,7 +1,7 @@
 %define module	Heap
 %define name	perl-%{module}
-%define version 0.71
-%define release %mkrel 5
+%define version 0.80
+%define release %mkrel 1
 
 Name:		%{name}
 Version:	%{version}
@@ -53,6 +53,5 @@ rm -rf %{buildroot}
 %doc Changes README
 %{perl_vendorlib}/Heap.pm
 %{perl_vendorlib}/Heap
-%{perl_vendorlib}/auto/Heap
 %{_mandir}/*/*
 
