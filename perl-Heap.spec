@@ -1,21 +1,21 @@
-%define module	Heap
-%define name	perl-%{module}
-%define version 0.80
-%define release %mkrel 3
+%define upstream_name	 Heap
+%define upstream_version 0.80
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
-Summary:	%{module} module for perl
-License:	GPL or Artistic
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
+Summary:	%{upstream_name} module for perl
+License:	GPL+ or Artistic
 Group:		Development/Perl
-Source0:	http://search.cpan.org/CPAN/authors/id/J/JM/JMM/%{module}-%{version}.tar.bz2
-Url:		http://search.cpan.org/dist/%{module}
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://search.cpan.org/CPAN/authors/id/J/JM/JMM/%{upstream_name}-%{upstream_version}.tar.bz2
+
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 The Heap collection of modules provide routines that manage a heap of
@@ -32,7 +32,7 @@ same class exactly or else classes that differ only in ways unrelated to
 the Heap::Elem interface.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -54,4 +54,3 @@ rm -rf %{buildroot}
 %{perl_vendorlib}/Heap.pm
 %{perl_vendorlib}/Heap
 %{_mandir}/*/*
-
