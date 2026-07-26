@@ -1,15 +1,13 @@
 %define upstream_name	 Heap
-%define upstream_version 0.80
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	6
+Version:	0.80
+Release:	7
 
 Summary:	%{upstream_name} module for perl
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/dist/Heap
-Source0:	https://cpan.metacpan.org/authors/id/J/JM/JMM/Heap-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/J/JM/JMM/Heap-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -30,7 +28,7 @@ same class exactly or else classes that differ only in ways unrelated to
 the Heap::Elem interface.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -49,9 +47,7 @@ perl Makefile.PL INSTALLDIRS=vendor
 %changelog
 * Wed Jul 29 2009 JÃ©rÃ´me Quelin <jquelin@mandriva.org> 0.800.0-1mdv2010.0
 + Revision: 403238
-- rebuild using %%perl_convert_version
-
-* Fri Aug 08 2008 Thierry Vignaud <tv@mandriva.org> 0.80-3mdv2009.0
+- rebuild using %0.80 Fri Aug 08 2008 Thierry Vignaud <tv@mandriva.org> 0.80-3mdv2009.0
 + Revision: 268527
 - rebuild early 2009.0 package (before pixel changes)
 
